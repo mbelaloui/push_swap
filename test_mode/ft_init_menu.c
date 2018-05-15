@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void	init(t_int_list **list_a, t_int_list **list_b)
+void	ft_init_menu(t_int_list **list_a, t_int_list **list_b)
 {
 	char *line;
 

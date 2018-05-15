@@ -14,6 +14,7 @@
 # define PUSH_SWAP
 # include "../../../test.h"
 
+void	ft_init_menu(t_int_list **list_a, t_int_list **list_b)
 void	ft_add_menu(t_int_list **list_a, t_int_list **list_b);
 void	ft_dell_menu(t_int_list **list_a, t_int_list **list_b);
 void	ft_swap_menu(t_int_list **list_a, t_int_list **list_b);
