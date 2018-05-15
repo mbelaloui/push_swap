@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/07 16:51:41 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/15 15:46:47 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/15 18:04:11 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 
 BOOL	is_overlow(char *line, intmax_t val, int size_nbr, t_options option)
 {
-	ft_printf("{green}2 [%s] {eoc}\n", line);
 	if (option.l)
 		return (ft_is_overflow_intmax(line));
 	else
