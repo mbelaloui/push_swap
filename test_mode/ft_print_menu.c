@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 16:24:50 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/15 19:53:55 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/16 14:02:48 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		ft_print_menu(t_int_list *list_a, t_int_list *list_b)
 	ft_printf("\tchoose - {yellow}1{eoc}  -\t"
 			"to initialize the list <A or B>.\n");
 	ft_printf("\tchoose - {yellow}2{eoc}  -\t"
-			"to add add to list <A or B>.\n");
+			"to add an item to list <A or B>.\n");
 	ft_printf("\tchoose - {yellow}3{eoc}  -\t"
 			"to remove an item from list <A or B>.\n");
 	ft_printf("\tchoose - {yellow}4{eoc}  -\t"

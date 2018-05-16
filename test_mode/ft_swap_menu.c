@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 19:02:35 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/15 19:04:13 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/16 15:53:28 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,20 @@
 
 void	ft_swap_menu(t_int_list **list_a, t_int_list **list_b)
 {
-	char *line;
-	intmax_t nbr;
+	char*line;
 
-	ft_clear_scr();
-	ft_printf("les listes avant \n ");
-	ft_put_tow_piles(*list_a, *list_b);
-	ft_printf("veillez choisir une liste A/B tout autre chois "
-			"pour revemir au menu > ");
+	ft_print_head(*list_a, *list_b);
+	ft_printf("\n\t - choose <A/a> to swap the head of list A.");
+	ft_printf("\n\t - choose <B/b> to swap the head of list B.");
+	ft_printf("\n\t - any other thing to come back to the main menu.");
+	ft_printf("\n\nyour choice > ");
 	get_next_line(0, &line);
-	if (!ft_strcmp(line, "A"))
+	if (!ft_strcmp(line, "A") || !ft_strcmp(line, "a"))
 		ft_intervert_head_int_list(list_a);
-	else if (!ft_strcmp(line, "B"))
+	else if (!ft_strcmp(line, "B") || !ft_strcmp(line, "b"))
 		ft_intervert_head_int_list(list_b);
-	ft_printf("les listes\n ");
-	ft_put_tow_piles(*list_a, *list_b);
+	ft_printf("\tlists\n ");
+	ft_print_head(*list_a, *list_b);
 	get_next_line(0, &line);
+	ft_strdel(&line);
 }
-

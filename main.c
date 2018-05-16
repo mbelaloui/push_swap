@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/07 17:33:10 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/15 16:23:46 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/16 15:35:47 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ int		main(int argc, char **argv)
 	if (ft_isempty(param))
 		return (ft_print_error(T) && ft_print_error(F));
 	if (!ft_is_param_valid(param, &option, &index))
+	{
+		ft_strdel(&param);
 		return ((option.opt) ? invalide_parametre(option) : ft_print_error(T));
+	}
 
 
 
