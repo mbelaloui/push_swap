@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 15:45:07 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/16 14:26:28 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/16 16:45:39 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_shift_down_menu(t_int_list **list_a, t_int_list **list_b);
 void	ft_push_menu(t_int_list **list_a, t_int_list **list_b);
 void	ft_print_head(t_int_list *list_a, t_int_list *list_b);
 
+int		main_debug(void);
+int		main_debug_arg(t_int_list *list_a);
 void	ft_swap_two_list(t_int_list **list_a, t_int_list **list_b);
 void	ft_shift_up_two_list(t_int_list **list_a, t_int_list **list_b);
 void	ft_shift_down_two_list(t_int_list **list_a, t_int_list **list_b);

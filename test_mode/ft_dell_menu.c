@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 18:58:21 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/16 15:51:58 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/16 16:37:24 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void		ft_dell_menu(t_int_list **list_a, t_int_list **list_b)
 		supprimerelemlist(list_a);
 	else if (!ft_strcmp(line, "B") || !ft_strcmp(line, "b"))
 		supprimerelemlist(list_b);
+	ft_strdel(&line);
 	ft_printf("\tlists\n ");
 	ft_print_head(*list_a, *list_b);
 	get_next_line(0, &line);

@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/07 17:33:10 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/16 15:35:47 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/16 16:33:55 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,19 @@ BOOL	run(char *param, t_options *option)
 
 void	printoverdflow(t_options option)
 {
-	if (option.l)
-		ft_printf("overflow intmax values....\n");
-	else
-		ft_printf("overflow int values....\n");
 }
 
-void	exist_double(void)
+void	print_error_detail(t_options option)
 {
-	ft_printf(" element en double ...\n");
+	if (option.exist_double)
+		ft_printf("element en double ...\n");
+	if (option.overflow)
+	{
+		if (option.l)
+			ft_printf("overflow intmax values....\n");
+		else
+			ft_printf("overflow int values....\n");
+	}
 }
 
 int		ft_print_error(BOOL show_error)
@@ -64,12 +68,12 @@ int		invalide_parametre(t_options option)
 		ft_print_action(actions_name);
 	}
 	else if (option.t)
-		ft_test_mode();
+		main_debug();
 	else
-	{	
+	{
 		ft_print_error(T);
 		if (option.d)
-		ft_printf("invalide format of parametres or caracter"
+			ft_printf("invalide format of parametres or caracter"
 				" in the parametre...\n");
 		ft_print_usage();
 	}
@@ -87,27 +91,18 @@ int		main(int argc, char **argv)
 		return (0);
 	param = ft_mat_to_str(argv, 1);
 	if (ft_isempty(param))
-		return (ft_print_error(T) && ft_print_error(F));
+		return (ft_strdel(&param) && ft_print_error(T) && ft_print_error(F));
 	if (!ft_is_param_valid(param, &option, &index))
 	{
-		ft_strdel(&param);
-		return ((option.opt) ? invalide_parametre(option) : ft_print_error(T));
+		return (ft_strdel(&param) &&
+			((option.opt) ? invalide_parametre(option) : ft_print_error(T)));
 	}
-
-
-
-
-
-
-
 	if (!run(param + index, &option))
 	{
 		ft_print_error(T);
-		if (option.d && option.exist_double)
-			exist_double();
-		if (option.d && option.overflow)
-			printoverdflow(option);
-		return (ft_print_error(F));
+		if ((option.d && option.exist_double) || (option.d && option.overflow))
+			print_error_detail(option);
+		return (ft_strdel(&param) && ft_print_error(F));
 	}
 	ft_strdel(&param);
 	return (0);

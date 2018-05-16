@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 19:02:35 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/16 15:53:28 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/16 16:38:55 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_swap_menu(t_int_list **list_a, t_int_list **list_b)
 		ft_intervert_head_int_list(list_a);
 	else if (!ft_strcmp(line, "B") || !ft_strcmp(line, "b"))
 		ft_intervert_head_int_list(list_b);
+	ft_strdel(&line);
 	ft_printf("\tlists\n ");
 	ft_print_head(*list_a, *list_b);
 	get_next_line(0, &line);

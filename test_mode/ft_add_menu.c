@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 18:52:37 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/16 15:42:40 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/16 16:36:54 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	ajouterdebut(t_int_list **list)
 {
 	char		*line;
-	intmax_t	nbr;
 
 	ft_clear_scr();
 	ft_printf("\t you will add an item at the beginning of the list !! \n");
@@ -26,13 +25,12 @@ static void	ajouterdebut(t_int_list **list)
 		ft_printf("please enter a number > ");
 		get_next_line(0, &line);
 		if (ft_is_valid_int_tab(line))
-		{
-			nbr = ft_atoi(line);
-			ft_add_bgn_int_list(nbr, list);
-		}
+			ft_add_bgn_int_list(ft_atointmax(line), list);
 		else
 			break ;
+		ft_strdel(&line);
 	}
+	ft_strdel(&line);
 	ft_printf("\t state list now \n \t - ");
 	ft_put_int_list(*list);
 	get_next_line(0, &line);
@@ -42,7 +40,6 @@ static void	ajouterdebut(t_int_list **list)
 static void	ajouterfin(t_int_list **list)
 {
 	char		*line;
-	intmax_t	nbr;
 
 	ft_clear_scr();
 	ft_printf("\t you will add an item at the end of the list !! \n");
@@ -53,13 +50,12 @@ static void	ajouterfin(t_int_list **list)
 		ft_printf("please enter a number > ");
 		get_next_line(0, &line);
 		if (ft_is_valid_int_tab(line))
-		{
-			nbr = ft_atoi(line);
-			ft_add_end_int_list(nbr, list);
-		}
+			ft_add_end_int_list(ft_atointmax(line), list);
 		else
 			break ;
+		ft_strdel(&line);
 	}
+	ft_strdel(&line);
 	ft_printf("\t state list now \n \t - ");
 	ft_put_int_list(*list);
 	get_next_line(0, &line);
@@ -99,6 +95,7 @@ void		ft_add_menu(t_int_list **list_a, t_int_list **list_b)
 		ajoutelemlist(list_a);
 	else if (!ft_strcmp(line, "B") || !ft_strcmp(line, "b"))
 		ajoutelemlist(list_b);
+	ft_strdel(&line);
 	ft_printf("\tlists\n ");
 	ft_print_head(*list_a, *list_b);
 	get_next_line(0, &line);
