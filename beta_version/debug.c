@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/04 12:49:26 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/19 20:16:24 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/19 20:44:54 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -290,12 +290,11 @@ void	read_action(t_int_list ** list_a, t_int_list ** list_b)
 	get_next_line(0, &line);
 }
 
-BOOL	chercherelemlist(t_int_list **list)
+BOOL	chercherelemlist(t_int_list *list_a, t_int_list *list_b)
 {
 	char *line;
 
-	ft_printf("pas encore developer...");
-	get_next_line(0, &line);
+	ft_search_menu(list_a, list_b);
 	return (T);
 }
 
@@ -347,7 +346,7 @@ int		main()
 		if (choix == 3)
 			dell(&list_a, &list_b);
 		if (choix == 4)
-			chercherelemlist(&list_a);
+			chercherelemlist(list_a, list_b);
 		if (choix == 5)
 			inter(&list_a, &list_b);
 		if (choix == 6)
