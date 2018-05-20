@@ -12,6 +12,23 @@
 
 #include "../inc/push_swap.h"
 
+
+void		init_option(t_options *option)
+{
+	option->opt = 0;
+	option->invalide_opt = 0;
+	option->a = 0;
+	option->c = 0;
+	option->d = 0;
+	option->h = 0;
+	option->l = 0;
+	option->t = 0;
+	option->exist_double = 0;
+	option->overflow = 0;
+
+}
+
+
 BOOL	run(char *param, t_options *option)
 {
 	t_int_list	*list_a;
@@ -43,6 +60,7 @@ int		main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	param = ft_mat_to_str(argv, 1);
+	init_option(&option);
 	if (ft_isempty(param))
 		return (ft_strdel(&param) && ft_print_error(T) && ft_print_error(F));
 	if (!ft_is_param_valid(param, &option, &index))

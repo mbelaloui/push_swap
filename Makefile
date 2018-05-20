@@ -67,13 +67,13 @@ all				: $(LIBFT) $(NAME_C) $(NAME_P)
 $(NAME_C)		: $(SRCS_C) $(OBJS_DIR)
 		@gcc $(SRCS_C) -L $(LIBFT_DIR) -lft -o $(NAME_C)
 		@echo "$(GREEN)$(NAME_C) has been successfully created !$(WHITE)."
-		@say "$(NAME_C) has been successfully created !"
+#		@say "$(NAME_C) has been successfully created !"
 		@#		@echo $(SRCS)
 
 $(NAME_P)		: $(SRCS_P) $(OBJS_DIR)
 		@gcc $(SRCS_P) -L $(LIBFT_DIR) -lft -o $(NAME_P)
 		@echo "$(GREEN)$(NAME_P) has been successfully created !$(WHITE)."
-		@say "$(NAME_P) has been successfully created !"
+#		@say "$(NAME_P) has been successfully created !"
 
 $(LIBFT)		:
 		@make -C $(LIBFT_DIR)
@@ -102,7 +102,7 @@ fclean			:
 		@echo "$(RED)cleaned the $(NAME) file$(WHITE)."
 		@echo "$(GREEN)the $(NAME_C) directory is totaly cleaned !!$(WHITE)."
 		@echo "$(GREEN)the $(NAME_P) directory is totaly cleaned !!$(WHITE)."
-		@say "the $(NAME_P) and $(NAME_C) directory is totaly cleaned !"
+#		@say "the $(NAME_P) and $(NAME_C) directory is totaly cleaned !"
 
 re				: fclean all
 

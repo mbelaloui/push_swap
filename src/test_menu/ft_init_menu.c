@@ -23,8 +23,8 @@ void	ft_init_menu(t_int_list **list_a, t_int_list **list_b)
 	ft_printf("\n\nyour choice > ");
 	get_next_line(0, &line);
 	if (!ft_strcmp(line, "A") || !ft_strcmp(line, "a"))
-		*list_a = NULL;
+		ft_clear_int_list(list_a);
 	else if (!ft_strcmp(line, "B") || !ft_strcmp(line, "b"))
-		*list_b = NULL;
-	ft_strdel(&line);
+		ft_clear_int_list(list_b);
+	ft_strdel(&line);	
 }
