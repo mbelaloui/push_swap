@@ -50,7 +50,7 @@ void			ft_dell_menu(t_int_list **list_a, t_int_list **list_b);
 void			ft_init_menu(t_int_list **list_a, t_int_list **list_b);
 void			ft_push_menu(t_int_list **list_a, t_int_list **list_b);
 void			ft_print_menu(t_int_list *list_a, t_int_list *list_b);
-void			ft_search_menu(t_int_list *list_a, t_int_list *list_b);
+void			ft_search_menu(t_int_list **list_a, t_int_list **list_b);
 void			ft_shift_down_menu(t_int_list **list_a, t_int_list **list_b);
 void			ft_shift_down_two_list(t_int_list **list_a,
 		t_int_list **list_b);
