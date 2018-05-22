@@ -92,7 +92,7 @@ clean			:
 		@make -C $(LIBFT_DIR) clean
 		@rm -fr $(OBJS_DIR)
 		@echo "$(RED)cleaned the checker binary files$(WHITE)."
-		@say "cleaned the checker binary files."
+#		@say "cleaned the checker binary files."
 
 fclean			:
 		@make -C $(LIBFT_DIR) fclean

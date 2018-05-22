@@ -52,7 +52,6 @@ static void	search(t_int_list *list)
 void		ft_search_menu(t_int_list **list_a, t_int_list **list_b)
 {
 	char *line;
-ft_printf("\n\nyour choice > ");
 	
 	ft_print_head(*list_a, *list_b);
 	ft_printf("\n\t - choose <A/a> to add items to list A.");
