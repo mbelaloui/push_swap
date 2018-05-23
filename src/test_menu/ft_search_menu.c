@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 15:42:40 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/19 20:48:57 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/23 14:31:43 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 **
 */
 
-
 static void	search(t_int_list *list)
 {
-	char *line;
+	char		*line;
+	intmax_t	temp_i;
+	long double	temp_d;
 
 	ft_clear_scr();
 	ft_printf("\t state list now \n \t - ");
 	ft_put_int_list(list);
-
 	ft_printf("\n\t - enter <max> to find the max value of a list.");
 	ft_printf("\n\t - enter <min> to find the max value of a list.");
 	ft_printf("\n\t - enter <med> to find the median value of a list.");
@@ -36,14 +36,14 @@ static void	search(t_int_list *list)
 	ft_printf("\n\t - any other thing to come back to the main menu.");
 	ft_printf("\n\nyour choice > ");
 	get_next_line(0, &line);
-	if (!ft_strcmp(line, "max"))
-		ft_printf("max = %d", 1);
-	else if (!ft_strcmp(line, "min"))
-		ft_printf("min = %d", 1);	
-	else if (!ft_strcmp(line, "med"))
-		ft_printf("med = %d", 1);
-	else if (!ft_strcmp(line, "avg"))
-		ft_printf("avg = %d", 1);
+	if (!ft_strcmp(line, "max") && ft_max_int_list(list, &temp_i))
+		ft_printf("max = %ld", temp_i);
+	else if (!ft_strcmp(line, "min") && ft_min_int_list(list, &temp_i))
+		ft_printf("min = %ld", temp_i);
+	else if (!ft_strcmp(line, "med") && (temp_d = ft_med_int_list(list)))
+		ft_printf("med = %ld", (intmax_t)temp_d);
+	else if (!ft_strcmp(line, "avg") && ft_avg_int_list(list, &temp_d))
+		ft_printf("avg = %ld", (intmax_t)temp_d);
 	ft_strdel(&line);
 	get_next_line(0, &line);
 	ft_strdel(&line);
