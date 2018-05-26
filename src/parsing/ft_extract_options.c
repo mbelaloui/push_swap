@@ -61,5 +61,5 @@ int					ft_extract_options(char *param, t_options *options)
 			return (-1);
 		index++;
 	}
-	return (1);
+	return (index);
 }

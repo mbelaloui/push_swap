@@ -26,6 +26,9 @@
 # define RRB	9
 # define RRR	10
 
+# define UP		1
+# define DW		2
+
 typedef struct	s_options
 {
 	int			opt :1;

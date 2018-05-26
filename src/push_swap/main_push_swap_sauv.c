@@ -215,7 +215,7 @@ intmax_t	ft_get_first_elem_bigger_med(t_int_list *list, intmax_t med)
    intmax_t index;
    intmax_t index_max;
 
-  // ft_printf("\n first elem big \n");
+   ft_printf("\n first elem big \n");
    if (list)
    {
       index = 0;
@@ -225,7 +225,7 @@ intmax_t	ft_get_first_elem_bigger_med(t_int_list *list, intmax_t med)
                med, list->data, index);
        */  if (list->data > med)
          {
-     //       ft_printf("retunred  index %d\n", index);
+            ft_printf("retunred  index %d\n", index);
             return (index);
          }
          index++;
@@ -241,7 +241,7 @@ intmax_t	ft_get_last_elem_bigger_med(t_int_list *list, intmax_t med)
    intmax_t index;
    intmax_t max_index;
 
-   //ft_printf("\n last elem big \n");
+   ft_printf("\n last elem big \n");
 
    max_index = -1;
    if (list)
@@ -257,7 +257,8 @@ intmax_t	ft_get_last_elem_bigger_med(t_int_list *list, intmax_t med)
          list = list->next;
       }
    }
- //  ft_printf("retun = index_max %d\n",      max_index);
+   ft_printf("retun = index_max %d\n",
+          max_index);
    return (max_index);
 }
 
@@ -286,32 +287,6 @@ intmax_t	ft_get_last_elem_bigger_med(t_int_list *list, intmax_t med)
 
 
 
-
-
-
-void  ft_rotat_down_stack_b(t_int_list **list_b, t_int_list *list_a, t_options *option, int nbr_rotations)
-{
-	while (nbr_rotations > 0)
-   {
-   	ft_printf("rrb\n");
-		ft_shift_bottom_int_list(list_b);
-      if (option->d)
-      	ft_put_tow_piles(list_a, *list_b);
-      nbr_rotations--;
-	}
-}
-
-void  ft_rotat_up_stack_b(t_int_list **list_b, t_int_list *list_a, t_options *option, int nbr_rotations)
-{
-   while (nbr_rotations > 0)
-   {
-      ft_printf("rb\n");
-      ft_shift_top_int_list(list_b);
-      if (option->d)
-         ft_put_tow_piles(list_a, *list_b);
-      nbr_rotations--;
-   }
-}
 
 
 
@@ -354,9 +329,9 @@ int	get_best_path(int first, int last, int size_list,t_int_list *list)
 	nbr_deplassement_l = ft_min(last, size_list - last);
 	nbr_deplassement_f = ft_min(first, size_list - first);
 
-/*	ft_printf( " nbr_deplassement_f =%d , nbr_deplassement_l =%d \n",
+	ft_printf( " nbr_deplassement_f =%d , nbr_deplassement_l =%d \n",
 		nbr_deplassement_f, nbr_deplassement_l);
-*//*
+/*
 	
 	if (nbr_deplassement_f == nbr_deplassement_l)
 	{
@@ -380,9 +355,9 @@ int	get_nbr_deplassement(int first, int last, int size_list)
 	nbr_deplassement_l = ft_min(last, size_list - last);
 	nbr_deplassement_f = ft_min(first, size_list - first);
 
-/*	ft_printf( " nbr_deplassement_f =%d , nbr_deplassement_l =%d \n",
+	ft_printf( " nbr_deplassement_f =%d , nbr_deplassement_l =%d \n",
 		nbr_deplassement_f, nbr_deplassement_l);
-*/	
+	
 /*	if (nbr_deplassement_f == nbr_deplassement_l)
 		return ((ft_getval_int_list(first) > ft_getval_int_list(first)) ? UP : DW);
 */
@@ -392,41 +367,6 @@ int	get_nbr_deplassement(int first, int last, int size_list)
 	return ((nbr_deplassement_f < nbr_deplassement_l) // le decalage de l'indice est prit en compt ici
 	?	nbr_deplassement_f : nbr_deplassement_l);
 }
-
-
-int	get_nbr_move_to_push(t_int_list *list, intmax_t elem)
-{
-	int nbr_move;
-
-	nbr_move = 0;
-	while (list)
-	{
-//		ft_printf(" elem = %ld \t list = %ld\t nbr_move push = %d\n", elem, list->data, nbr_move );	
-		if (list->data == elem)
-			return (nbr_move);
-		nbr_move++;
-		list = list->next;
-	}	
-	return (-1);
-}
-
-int	get_nbr_move_to_put(t_int_list *list, intmax_t elem)
-{
-	int nbr_move;
-
-	nbr_move = 0;
-	while (list)
-	{
-//		ft_printf("elem = %ld \t list = %ld\t nbr_move put = %d\n", elem, list->data, nbr_move);
-
-		if (list->data > elem)
-				return (nbr_move);
-			nbr_move++;
-			list = list->next;
-	}	
-	return (nbr_move);
-}
-
 
 
 /* med to avg*/
@@ -443,45 +383,89 @@ void	run_sort_1(t_int_list *list_a, t_options *option)
    sizelist = ft_size_int_list(list_a);
    if (option->d)
       ft_put_tow_piles(list_a, list_b);
-   while (sizelist > 2)
+   //  while (sizelist > 2)
    {
-		if (!ft_is_sorted_asc_int_list(list_a))
-	   {
-			ft_printf("pb\n");
-			ft_push_first_to_list(&list_a, &list_b);
-			if (option->d)
-				ft_put_tow_piles(list_a, list_b);
-		}
-		else
-			break;
-		sizelist = ft_size_int_list(list_a);
-}
- if (!ft_is_sorted_asc_int_list(list_a))//)
+//	med =  ft_med_int)list(list)a);
+      ft_avg_int_list(list_a, &avg);
+      med = (intmax_t)avg;
+//
+//    while ((index_max = ft_get_first_elem_bigger_med(list_a, med)) > -1)
+   while ((first_index_max = ft_get_first_elem_bigger_med(list_a, med)) > - 1);
+  {
+       last_index_max = ft_get_last_elem_bigger_med(list_a, med);
+
+        if (option->d)
+            ft_printf("med = %ld, first_index_max %d, last_index_max = %ld, size_list = %d\n"
+                  , med,first_index_max, last_index_max, sizelist);
+
+	
+	
+int nbr_rotations =	get_nbr_deplassement(first_index_max, last_index_max, sizelist);
+int direction = get_best_path(first_index_max, last_index_max, sizelist, list_a);
+
+	if (direction == DW)
+			ft_rotat_down_stack(&list_a,list_b, option, nbr_rotations);
+	else //(direction == UP)
+			ft_rotat_up_stack(&list_a,list_b, option, nbr_rotations);
+
+	if (!ft_is_sorted_asc_int_list(list_a))
+   {
+		ft_printf("pb\n");
+		ft_push_first_to_list(&list_a, &list_b);
+		if (option->d)
+			ft_put_tow_piles(list_a, list_b);
+	}
+ 
+
+
+ 
+ /*       if (index_max > sizelist/2)
+          {
+               while (index_max < sizelist)
+               {
+	                 ft_printf("rra\n");
+   	              ft_shift_bottom_int_list(&list_a);
+                    if (option->d)
+           		        ft_put_tow_piles(list_a, list_b);
+               	   index_max++;
+               }
+          }
+          else if ((index_max < sizelist/2))
+          {
+              while (index_max > 0)
+               {
+                  ft_printf("ra\n");
+                  ft_shift_top_int_list(&list_a);
+                  if (option->d)
+          	        ft_put_tow_piles(list_a, list_b);
+                  index_max--;
+                }
+          }
+        
+			 //	index_max = 0;
+         
+			if (!ft_is_sorted_asc_int_list(list_a))
+         {
+ 	      	ft_printf("pb\n");
+   	      ft_push_first_to_list(&list_a, &list_b);
+      	   if (option->d)
+        			 ft_put_tow_piles(list_a, list_b);
+         }
+*/			sizelist = ft_size_int_list(list_a);
+	   }
+   }
+   /*  if (!ft_is_sorted_asc_int_list(list_a))//)
        {
+	       if (list_a->data > (list_a->next)->data)
+   	    {
 	   	    ft_printf("sa\n");
 	      	 ft_intervert_head_int_list(&list_a);
 	   	    if (option->d)
    			    ft_put_tow_piles(list_a, list_b);
+      	 }
        }
- 
+    */
 
-int nbr;
-   intmax_t val;
-
-	while (list_b)
-	{
-		val = list_b->data;
-		nbr = get_nbr_move_to_push(list_b, val);
-		ft_rotat_up_stack_b(&list_b,list_a, option, nbr);
-		nbr = get_nbr_move_to_put(list_a, val);
-		ft_rotat_up_stack(&list_a,list_b, option, nbr);
-		ft_printf("pa\n");
-			ft_push_first_to_list(&list_b, &list_a);
-			if (option->d)
-				ft_put_tow_piles(list_a, list_b);
-		ft_rotat_down_stack(&list_a,list_b, option, nbr);
-	}
-	
    // find_index_insertion(element first list b)
    // best way to get to the place
    // go to the place

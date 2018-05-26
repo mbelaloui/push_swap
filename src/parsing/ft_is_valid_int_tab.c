@@ -28,6 +28,9 @@ BOOL	ft_is_valid_int_tab(char *param)
 	index = 0;
 	if (ft_isempty(param))
 		return (F);
+
+	//ft_printf(">%s>\n", param);
+
 	index = (param[index] == '-' || param[index] == '+') ? 1 : 0;
 	while (param[index]
 			&& (ft_isdigit(param[index]) || ft_isblank(param[index])
@@ -35,6 +38,8 @@ BOOL	ft_is_valid_int_tab(char *param)
 					&& ft_isblank(param[index - 1])
 					&& ft_isdigit(param[index + 1]))))
 		index++;
+
+
 	if (param[index])
 		return (F);
 	return (T);

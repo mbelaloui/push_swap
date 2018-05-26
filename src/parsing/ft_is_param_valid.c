@@ -26,12 +26,12 @@
 
 BOOL	ft_is_param_valid(char *param, t_options *options, int *index)
 {
-	int index_after_optins;
+  	int index_after_options;
 
-	if ((index_after_optins = ft_extract_options(param, options)) < 0)
+	if ((index_after_options = ft_extract_options(param, options)) < 0)
 		return (F);
-	if (!ft_is_valid_int_tab(param + index_after_optins))
+	if (!ft_is_valid_int_tab(param + index_after_options))
 		return (F);
-	*index = index_after_optins;
+	*index = index_after_options;
 	return (T);
 }

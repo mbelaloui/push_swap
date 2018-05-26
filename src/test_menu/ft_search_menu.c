@@ -40,8 +40,8 @@ static void	search(t_int_list *list)
 		ft_printf("max = %ld", temp_i);
 	else if (!ft_strcmp(line, "min") && ft_min_int_list(list, &temp_i))
 		ft_printf("min = %ld", temp_i);
-	else if (!ft_strcmp(line, "med") && (temp_d = ft_med_int_list(list)))
-		ft_printf("med = %ld", (intmax_t)temp_d);
+//	else if (!ft_strcmp(line, "med") && (temp_d = ft_med_int_list(list)))
+//		ft_printf("med = %ld", (intmax_t)temp_d);
 	else if (!ft_strcmp(line, "avg") && ft_avg_int_list(list, &temp_d))
 		ft_printf("avg = %ld", (intmax_t)temp_d);
 	ft_strdel(&line);
