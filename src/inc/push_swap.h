@@ -29,6 +29,12 @@
 # define UP		1
 # define DW		2
 
+typedef struct s_action
+{
+	char			*action;
+	struct s_action		*next;
+}					t_actions;
+
 typedef struct	s_options
 {
 	int			opt :1;
@@ -41,6 +47,7 @@ typedef struct	s_options
 	int			t : 1;
 	int			exist_double : 1;
 	int			overflow : 1;
+
 }				t_options;
 
 /*					menu debug						 */

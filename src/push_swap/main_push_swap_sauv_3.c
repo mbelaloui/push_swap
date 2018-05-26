@@ -265,45 +265,7 @@ intmax_t	ft_get_last_elem_bigger_med(t_int_list *list, intmax_t med)
 
 
 
-t_actions             *ft_new_actions_list(const char *action)
-{
-        t_actions              *ret;
 
-        if (!(ret = malloc(sizeof(*ret))))
-                return (NULL);
-        ret->action = ft_strdup(action);
-        ret->next = NULL;
-        return (ret);
-}
-
-
-BOOL    ft_add_action(char *action, t_actions **list)
-{
-        t_actions      *temp_node;
-        t_actions      *pt_list;
-
-        if (!(temp_node = ft_new_actions_list(action)))
-                return (F);
-        if (!(*list))
-                *list = temp_node;
-        else
-        {
-                pt_list = *list;
-                while (pt_list->next)
-                        pt_list = pt_list->next;
-                pt_list->next = temp_node;
-        }
-        return (T);
-}
-
-void	ft_put_action(t_actions *action)
-{
-	while (action)
-	{
-		ft_printf("%s", action->action);
-		action = action->next;
-	}
-}
 
 
 
@@ -341,12 +303,11 @@ void  ft_rotat_up_stack_b(t_int_list **list_b, t_int_list *list_a, t_options *op
 }
 
 
-void  ft_rotat_down_stack_a(t_int_list **list_a, t_int_list *list_b, t_options *option, int nbr_rotations, t_actions **action)
+void  ft_rotat_down_stack_a(t_int_list **list_a, t_int_list *list_b, t_options *option, int nbr_rotations)
 {
 	while (nbr_rotations > 0)
 	{
-		ft_add_action("rra\n", action);
-//		ft_printf("rra\n");
+		ft_printf("rra\n");
 		ft_shift_bottom_int_list(list_a);
 		if (option->d)
 			ft_put_tow_piles(*list_a, list_b);
@@ -354,12 +315,11 @@ void  ft_rotat_down_stack_a(t_int_list **list_a, t_int_list *list_b, t_options *
 	}
 }
 
-void  ft_rotat_up_stack_a(t_int_list **list_a, t_int_list *list_b, t_options *option, int nbr_rotations, t_actions **action)
+void  ft_rotat_up_stack_a(t_int_list **list_a, t_int_list *list_b, t_options *option, int nbr_rotations)
 {
 	while (nbr_rotations > 0)
 	{
-		ft_add_action("ra\n", action);
-//		ft_printf("ra\n");
+		ft_printf("ra\n");
 		ft_shift_top_int_list(list_a);
 		if (option->d)
 			ft_put_tow_piles(*list_a, list_b);
@@ -454,76 +414,6 @@ int	get_nbr_move_to_put(t_int_list *list, intmax_t elem)
 }
 
 
-/*
-BOOL    ft_dell_bgn_int_list(t_int_list **list)
-{
-        t_int_list      *to_free;
-
-        if ((*list) == NULL)
-                return (F);
-        to_free = *list;
-        if (!(*list)->next)
-                *list = NULL;
-        else
-                *list = (*list)->next;
-        free(to_free);
-        return (T);
-
-*/	
-void	clean_list(t_actions **action)
-{
-	BOOL modified = T;
-	t_actions *pt;
-	t_actions *sauv_pt;
-	t_actions *to_free_pt2;
-	t_actions to_free_pt1;
-
-	while (modified)
-	{
-		modified =F;
-		pt = *action;
-		sauv_pt = NULL;
-		while (pt->next)
-		{
-			if (!(!ft_strcmp(pt->action, "rra\n") && !ft_strcmp((pt->next)->action, "ra\n")))
-			{//		ft_printf("asasdas\n");
-				sauv_pt = pt;
-			}
-			if (!ft_strcmp(pt->action, "rra\n"))
-			{
-				if (!ft_strcmp((pt->next)->action, "ra\n"))
-				{
-					to_free_pt2 = pt->next;
-					pt->next = to_free_pt2->next;
-	//				free (to_free_pt2);
-					to_free_pt2 = pt;
-					sauv_pt->next = to_free_pt2->next; 	
-	//				free (to_free_pt2);
-	
-		//			ft_printf("asasdas\n");
-					pt = sauv_pt->next;
-					modified =T;
-				}
-			}
-			pt = pt->next;
-		}
-	}
-}	
-//			sauv_pt = pt;
-//			if (  !ft_strcmp((pt->next)->action, "ra\n") && !ft_strcmp("rra\n",
-//								  ((pt->next)->action) )
-//			{
-//				pt_temp = pt->next;
-//				sauv_pt->next = (pt->next)->next;
-//
-//				free(pt_temp); // faire une fonction qui free corectement		
-//			
-//			
-//			}
-//		}
-//	}
-//}
-
 
 /* med to avg*/
 void	run_sort_1(t_int_list *list_a, t_options *option)
@@ -535,8 +425,6 @@ void	run_sort_1(t_int_list *list_a, t_options *option)
 	int		sizelist;
 	long double avg;
 
-	t_actions	*action = NULL;
-
 	list_b = NULL;
 	sizelist = ft_size_int_list(list_a);
 	if (option->d)
@@ -545,10 +433,7 @@ void	run_sort_1(t_int_list *list_a, t_options *option)
 	{
 		if (!ft_is_sorted_asc_int_list(list_a))
 		{
-//			ft_printf("pb\n");
-
-			ft_add_action("pb\n", &action);
-
+			ft_printf("pb\n");
 			ft_push_first_to_list(&list_a, &list_b);
 			if (option->d)
 				ft_put_tow_piles(list_a, list_b);
@@ -559,61 +444,27 @@ void	run_sort_1(t_int_list *list_a, t_options *option)
 	}
 	if (!ft_is_sorted_asc_int_list(list_a))//)
 	{
-		ft_add_action("sa\n", &action);
-//		ft_printf("sa\n");
+		ft_printf("sa\n");
 		ft_intervert_head_int_list(&list_a);
 		if (option->d)
 			ft_put_tow_piles(list_a, list_b);
 	}
 
+
 	int nbr;
 	intmax_t val;
-//	ft_printf("\n*********************\n");
 
 	while (list_b)
 	{
 		val = list_b->data;
 		nbr = get_nbr_move_to_put(list_a, val);
-
-//ft_printf(" val = %ld\tnbr move to put = %d  \n", val, nbr);
-
-		if (nbr <= (int)ft_size_int_list(list_a)/2 )
-		{
-			ft_printf("1-\t size = %d\t nbr = %d \n", ft_size_int_list(list_a), nbr);
-//			ft_printf("1\n");
-			ft_rotat_up_stack_a(&list_a,list_b, option, nbr, &action);
-			ft_add_action("pa\n", &action);
-			ft_push_first_to_list(&list_b, &list_a);
-			if (option->d)
-				ft_put_tow_piles(list_a, list_b);
-			ft_rotat_down_stack_a(&list_a,list_b, option, nbr, &action);
-		}
-		else
-		{
-			ft_printf("2-\t size = %d\t nbr = %d \n", ft_size_int_list(list_a), nbr);
-			int rot = ft_size_int_list(list_a) - nbr;
-			ft_rotat_down_stack_a(&list_a,list_b, option, rot, &action);
-	
-			ft_add_action("pa\n", &action);
-			ft_push_first_to_list(&list_b, &list_a);
-			if (option->d)
-				ft_put_tow_piles(list_a, list_b);
-			ft_rotat_up_stack_a(&list_a,list_b, option, rot + 1, &action);
-		//	ft_rotat_up_stack_a(&list_a,list_b, option, nbr, &action);
-		}
+		ft_rotat_up_stack_a(&list_a,list_b, option, nbr);
+		ft_printf("pa\n");
+		ft_push_first_to_list(&list_b, &list_a);
+		if (option->d)
+			ft_put_tow_piles(list_a, list_b);
+		ft_rotat_down_stack_a(&list_a,list_b, option, nbr);
 	}
-
-//find an other way to place value	
-	
-//
-
-//	ft_put_action(action);
-
-//ft_printf("\n********************************\n");
-
-	clean_list(&action);
-
-	ft_put_action(action);
 
 	// find_index_insertion(element first list b)
 	// best way to get to the place
