@@ -57,7 +57,8 @@ BOOL		ft_add_end_values_int_list(char *line, t_int_list **list_valeur,
 		if (ft_is_in_int_list(val, *list_valeur))
 			return ((option->exist_double = 1) && F);
 		else
-			ft_add_end_int_list(val, list_valeur);
+			if(!ft_add_end_int_list(val, list_valeur))
+				return (F);
 		size_nbr = 0;
 		while (line[pt] && ft_isdigit(line[pt++]))
 			size_nbr++;

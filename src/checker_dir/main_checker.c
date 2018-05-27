@@ -33,6 +33,17 @@ BOOL	run(char *param, t_options *option)
 	return (T);
 }
 
+void            init_option(t_options *opt)
+{
+        opt->a = 0;
+        opt->c = 0;
+        opt->d = 0;
+        opt->h = 0;
+        opt->l = 0;
+        opt->t = 0;
+}
+
+
 int		main(int argc, char **argv)
 {
 	t_options	option;
@@ -45,6 +56,7 @@ int		main(int argc, char **argv)
 	param = ft_mat_to_str(argv, 1);
 	if (ft_isempty(param))
 		return (ft_strdel(&param) && ft_print_error(T) && ft_print_error(F));
+	init_option(&option);
 	if (!ft_is_param_valid(param, &option, &index))
 	{
 		return (ft_strdel(&param) &&
