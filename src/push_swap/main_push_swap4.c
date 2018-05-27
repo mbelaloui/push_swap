@@ -656,53 +656,6 @@ void	test_rotat(t_int_list *list_a, t_options *option)
 	ft_dell_list_action(&action);
 }
 
-int get_position_in_list(t_int_list *list, intmax_t elem)
-{
-	t_int_list	*pt_a;
-	t_int_list	*pt_b;
-	int			index;
-
-		// peut etre optimiser utiliser directmenet list
-	pt_a = list;
-	pt_b = list->next;
-	index = 1;
-	intmax_t max_list;
-	intmax_t min_list;
-	
-	ft_max_int_list(list, &max_list);
-	if (elem > max_list)
-	{
-//		ft_printf(" get emplassemesnt maix [%ld]  idex = %d ", elem , ft_get_index_max_int_list(list) + 1);
-		return (ft_get_index_max_int_list(list) + 1);
-
-//		ft_printf(" get e;plassemesnt max et ajouter un  ");
-	}
-	else
-	{
-		ft_min_int_list(list, &min_list);
-		if (min_list > elem )
-		{
-//			ft_printf(" get emplassemesnt min [%ld] idex = %d ", elem , ft_get_index_min_int_list(list));
-			return (ft_get_index_min_int_list(list));
-		}
-		while (pt_b)
-		{
-
-		ft_printf("elem %d\t pt_a = %ld \t pt_b  = %ld  \t index = %d \n ",elem, pt_a->data, pt_b->data, index);
-			if (pt_a->data < elem && pt_b->data > elem)
-				return (index);
-			pt_a = pt_a->next;
-			pt_b = pt_b->next;
-			index++;
-		}
-ft_printf("elem %d\t pt_a = %ld \t index = %d \n ",elem, pt_a->data,  index);
-	if (list->data > elem)
-		return (0);	
-//	if (pt_a->data < elem)
-//		return (0);
-		}	
-	return (0);// index % size_list
-}
 
 void	test_put_elem(t_int_list *list_a, t_options *option)
 {
@@ -713,14 +666,11 @@ void	test_put_elem(t_int_list *list_a, t_options *option)
 	int 	sizelist = ft_size_int_list(list_a);
 	if (option->d)
 		ft_put_tow_piles(list_a, list_b);
-		while (sizelist > 2)
+	while (sizelist > 2)
 	{
 		if (!ft_is_sorted_asc_int_list(list_a))
 		{
-			//			ft_printf("pb\n");
-
 			ft_add_action("pb\n", &action);
-
 			ft_push_first_to_list(&list_a, &list_b);
 			if (option->d)
 				ft_put_tow_piles(list_a, list_b);
@@ -729,95 +679,98 @@ void	test_put_elem(t_int_list *list_a, t_options *option)
 			break;
 		sizelist = ft_size_int_list(list_a);
 	}
-	if (!ft_is_sorted_asc_int_list(list_a))//)
-	{
-		ft_add_action("sa\n", &action);
-//				ft_printf("sa\n");
-		ft_intervert_head_int_list(&list_a);
-		if (option->d)
-			ft_put_tow_piles(list_a, list_b);
-	}
+
+	int last_list_a;
+	t_int_list *pt_list_a;
+	
+	int size_list_a;
+
+	int elem_b;
+	intmax_t val_min;
+	int index;
 
 
 while (list_b)
 {
+	pt_list_a = list_a;
+	while (pt_list_a->next)
+		pt_list_a = pt_list_a->next;
+	last_list_a = pt_list_a->data;
+ft_printf("\t head = %ld\t tail = %ld\n", list_a->data, last_list_a);
 
-	int index;
-		
-//	ft_printf("\n len list = %d\n", ft_size_int_list(list_a));
-
-	index = get_position_in_list(list_a, list_b->data);
-//	ft_printf("  index = %d \n ", index);
-	if ( index <=  sizelist / 2 )
+ft_printf("\t 1 \n");
+	elem_b = list_b->data;
+ft_printf("\t 2 \n");
+	if (list_a->data > elem_b)
 	{
-		index = (!index) ? 1 : index;
-//		ft_printf("\n 1 index = %d\n", index);
-		ft_rotat_up_stack_a(&list_a,list_b, option, index, &action);
+		if (last_list_a > elem_b)
+		{
+			index = ft_get_index_min_int_list(list_a);
+			ft_getval_int_list(list_a, index, &val_min);
+
+		ft_printf("\t index min = %d\t val min = %ld\n", index, val_min);
+	
+			size_list_a = ft_size_int_list(list_a);
+			if (index < size_list_a / 2)
+			{	
+				ft_rotat_up_stack_a(&list_a,list_b, option, 1, &action);
+				ft_printf("\t rotat up \tsize =%d \n", size_list_a);	
+			}			
+			else
+			{
+				ft_rotat_down_stack_a(&list_a,list_b, option, 1, &action);
+				ft_printf("\t rotat down \n");
+			}
+			ft_add_action("pa\n", &action);
+			ft_push_first_to_list(&list_b, &list_a);
 			if (option->d)
 				ft_put_tow_piles(list_a, list_b);
-	}else
-	{
-//		ft_printf("\n 2 index = %d\n", index);
-//		if (index % 2)  
-//			index = (index == sizelist) ? 0 : (sizelist  - index  1);
-//		else
-			index = (index == sizelist) ? 0 : (sizelist  - index);
-//		ft_printf("\n 2 index = %d\n", index);
-		ft_rotat_down_stack_a(&list_a,list_b, option, index , &action);
-	/*		if (option->d)
-				ft_put_tow_piles(list_a, list_b);
-*/	}
-
-	ft_add_action("pa\n", &action);
-
-	ft_push_first_to_list(&list_b, &list_a);
-	if (option->d)
-		ft_put_tow_piles(list_a, list_b);
-
-
-	sizelist = ft_size_int_list(list_a);
-
-//ft_temporize(10);
-
-
-}		
-
-
-	int ind = ft_get_index_min_int_list(list_a);
-	sizelist = ft_size_int_list(list_a);
-	if ( ind <  sizelist / 2 )
-	{
-//ft_printf("\n 1 index = %d\n", ind);
-		ft_rotat_up_stack_a(&list_a,list_b, option, ind, &action);
-			if (option->d)
-				ft_put_tow_piles(list_a, list_b);
-	}else
-	{
-//		ft_printf("\n 2 index = %d \n", ind);
-		
-		ft_rotat_down_stack_a(&list_a,list_b, option, ind - (sizelist/2) + 2, &action);
-			if (option->d)
-				ft_put_tow_piles(list_a, list_b);
+		}
 	}
+	else  // elem > list_a->data
+	{
 
 
-	ft_put_action(action);
-
-
-
-/*
-//ft_printf("\nasdasdas \n");
-
-	ft_printf("\n***********INPUT******************\n");	
-	ft_put_action(action);
-	ft_printf("\n********TRAITEMENT****************\n");	
-	clean_list_rra_ra(&action);
-	ft_printf("\n***********OUTPUT*****************\n");	
-	ft_put_action(action);
-
-	ft_dell_list_action(&action);
-*/
+		if (last_list_a > elem_b)
+		{
+			ft_rotat_up_stack_a(&list_a,list_b, option, 1, &action);
+		
+			ft_add_action("pa\n", &action);
+			ft_push_first_to_list(&list_b, &list_a);
+			if (option->d)
+				ft_put_tow_piles(list_a, list_b);
+		
+		}
+		else		
+			break;
+	}
 }
+}
+	/*			ft_min_int_list(list_a, &val_min);
+			if (val_min > elem_b)
+			{
+				
+			}
+
+
+
+			{
+				ft_rotat_down_stack_a(&list_a,list_b, option, 1, &action);
+			}		
+	
+	pt_list_a = list_a;
+	while (pt_list_a->next)
+		pt_list_a = pt_list_a->next;
+	last_list_a = pt_list_a->data;
+
+//		ft_get_index_min_int_list(const t_int_list *list)
+	
+ft_rotat_up_stack_b(&list_a,list_b, option, 1, &action);
+	ft_rotat_down_stack_b(&list_a,list_b, option, 1, &action);
+
+	ft_rotat_down_stack_a(&list_a,list_b, option, 3, &action);
+	ft_rotat_up_stack_a(&list_a,list_b, option, 3, &action);
+*/
 
 BOOL	run(char *param, t_options *option)
 {
