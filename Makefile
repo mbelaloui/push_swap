@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/05/23 14:28:47 by mbelalou         ###   ########.fr        #
+#    Updated: 2018/05/28 12:45:00 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,15 @@ DIR_PUSH_SWAP	= src/push_swap
 SRC_PUSH_SWAP	= main_push_swap.c
 SRCS_PUSH_SWAP	= $(addprefix $(DIR_PUSH_SWAP)/, $(SRC_PUSH_SWAP))
 
+DIR_ACT_PUSH_SWAP	= src/action_push_swap/
+SRC_ACT_PUSH_SWAP	= ft_are_cancel_out_action.c ft_clean_list_rra_ra.c\
+					  ft_get_best_path.c ft_get_nbr_deplassement.c\
+					  ft_get_nbr_move_to_push.c ft_get_nbr_move_to_put.c\
+					  ft_init_option.c ft_rotat_down_stack_a.c\
+					  ft_rotat_down_stack_b.c ft_rotat_up_stack_a.c\
+					  ft_rotat_up_stack_b.c
+SRCS_ACT_PUSH_SWAP	= $(addprefix $(DIR_ACT_PUSH_SWAP)/, $(SRC_ACT_PUSH_SWAP))
+
 INC_DIR		= inc/
 
 OBJS_DIR	= bin/
@@ -54,7 +63,7 @@ LIBFT		= libft.a
 
 SRCS_C		= $(SRCS_TEST) $(SRCS_PARSING) $(SRCS_MAESSAGE) $(SRCS_CHECKER)
 SRCS_P		= $(SRCS_TEST) $(SRCS_PARSING) $(SRCS_MAESSAGE) $(SRCS_PUSH_SWAP)\
-			  $(DIR_CHECKER)/ft_init_action_name.c
+			  $(SRCS_ACT_PUSH_SWAP) $(DIR_CHECKER)/ft_init_action_name.c 
 
 RED		= \033[31m
 GREEN		= \033[32m
@@ -80,9 +89,10 @@ $(LIBFT)		:
 
 $(OBJS_DIR)%.o	: %.c $(INC_DIR)
 		@gcc $(FLAGES) $< -o $@ -I $(INC_DIR)
-
+		@echo "$< compiling"
 $(OBJS_DIR)		:
 		@mkdir -p $(OBJS_DIR);
+		@mkdir -p $(OBJS_DIR)/$(DIR_ACT_PUSH_SWAP);
 		@mkdir -p $(OBJS_DIR)/$(DIR_TEST);
 		@mkdir -p $(OBJS_DIR)/$(DIR_PARSING);
 		@mkdir -p $(OBJS_DIR)/$(DIR_MESSAGE);

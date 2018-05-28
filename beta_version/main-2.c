@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 16:58:46 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/23 14:51:07 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/28 15:40:23 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,76 @@
 
 int			main(void)
 {
-	intmax_t tab[] = {6,5,4,3,2,1,0,-1,-2,-3,-4,-5,-6,-7,-8};
-	t_int_list *list;
+	intmax_t tab[] = {90,50,9,8,7,6,5,4,3,2,1,900,0,-1,-2,-3,-4,-5,-6,800,-7,-8};
+/*	t_int_list *list;
+
+	ft_put_intmax_tab(tab, sizeof(tab));
 
 	list = NULL;
 	ft_put_int_list(list);
 
-	list = ft_tab_to_int_list(tab, sizeof(tab) / sizeof(intmax_t));
+	list = ft_tab_to_int_list(tab, sizeof(tab));
 
-	printf(" med  %d size / 2 = %zu \n",
-			(int)ft_med_int_list(list),
-			ft_size_int_list(list) / 2);
-	ft_clear_int_list(&list);
-
-
+	long double med;
+			
+	ft_med_int_list(list, &med);
+	printf(" med  %Lf\t\tsize / 2 = %zu \n", med, ft_size_int_list(list) / 2);
 
 	long double avg = 0.0;
 
-	ft_avg_tab(tab, &avg, sizeof(tab) / sizeof(intmax_t));
-	printf(" avg tab = %Lf ", avg);
-	printf(" med  %d size / 2 = %zu ",
-			(int)ft_med_tab(tab, sizeof(tab) / sizeof(intmax_t)),
+	ft_avg_tab(tab, &avg, sizeof(tab));
+	printf(" avg tab = %Lf\n", avg);
+	printf(" med  %Lf\t\tsize / 2 = %zu\n", ft_med_tab(tab, sizeof(tab)),
 			(sizeof(tab) / sizeof(intmax_t)) / 2);
+
+	fflush(stdout);
+
+	intmax_t index = 0;
+	ft_put_int_list(list);
+	ft_printf(" size list = %d\n", ft_size_int_list(list));
+	
+	index = ft_get_index_max_int_list(list);
+	ft_printf("index max dans la list = %d\n", index);
+
+	index = ft_get_index_min_int_list(list);
+	ft_printf("index min dans la list = %d\n", index);
+
+	ft_printf("\n************** firest bigger **********************\n");
+
+	intmax_t val = 80;
+	index = ft_get_index_first_elem_bigger_intlist(list, val);
+	ft_printf("index firest elem bigger than %ld  = %ld\n",val, index);
+	ft_get_val_intlist(list, index, &val);
+	ft_printf(" val de l'index dans le tab = %ld\n",val);
+
+	ft_printf("\n************** last bigger **********************\n");
+
+	index = ft_get_index_last_elem_bigger_intlist(list, val);
+	ft_printf("index last elem bigger than %ld  = %ld\n",val, index);
+	ft_get_val_intlist(list, index, &val);
+	ft_printf(" val de l'index dans le tab = %ld\n",val);
+
 	ft_clear_int_list(&list);
+*/
+	t_charlist *head;
+	ft_put_charlist(head);
+	ft_put_list_charlist(head);
+	head = ft_new_charlist("action 1");
+	
+	ft_put_list_charlist(head);
+	ft_printf("\n************** **********************\n");
+
+	ft_add_charlist(NULL, &head);
+	ft_put_list_charlist(head);
+	ft_printf("\n************** *********************\n");
+
+	ft_add_charlist("elem 2", &head);
+	ft_put_list_charlist(head);
+	ft_printf("is empty %d", ft_isempty_charlist(head));
+
+	ft_dell_list_charlist(&head);
+
+	ft_printf("is empty %d", ft_isempty_charlist(head));
 
 	/*	
 		ft_put_intmax_tab(tab, sizeof(tab));

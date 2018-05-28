@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 15:45:07 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/23 14:19:29 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/28 12:46:35 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@
 # define UP		1
 # define DW		2
 
-typedef struct s_action
-{
-	char			*action;
-	struct s_action		*next;
-}					t_actions;
 
 typedef struct	s_options
 {
@@ -50,6 +45,7 @@ typedef struct	s_options
 
 }				t_options;
 
+# include "action.h"
 /*					menu debug						 */
 
 int				main_debug(void);
