@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/05/28 17:26:28 by mbelalou         ###   ########.fr        #
+#    Updated: 2018/05/29 15:48:00 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ SRC_ACT_PUSH_SWAP	= ft_are_cancel_out_action.c ft_clean_list_rra_ra.c\
 					  ft_get_nbr_move_to_push.c ft_get_nbr_move_to_put.c\
 					  ft_init_option.c ft_rotat_down_stack_a.c\
 					  ft_rotat_down_stack_b.c ft_rotat_up_stack_a.c\
-					  ft_rotat_up_stack_b.c
+					  ft_rotat_up_stack_b.c ft_get_position_in_list.c
 SRCS_ACT_PUSH_SWAP	= $(addprefix $(DIR_ACT_PUSH_SWAP)/, $(SRC_ACT_PUSH_SWAP))
 
 INC_DIR		= inc/

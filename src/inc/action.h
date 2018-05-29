@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 11:03:26 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/28 17:21:14 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/29 16:38:49 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_rotat_down_stack_b(t_int_list **list,int nbr_rotations,
 		t_charlist **action);
 void	ft_rotat_up_stack_b(t_int_list **list, int nbr_rotations,
 		t_charlist **action);
+int		ft_get_position_in_list(t_int_list *list, intmax_t elem);
 
 
 
