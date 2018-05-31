@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 11:03:26 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/31 20:23:48 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/31 20:52:48 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,18 @@ void	ft_second_pahse(t_int_list **list_a, t_int_list **list_b,
 void	ft_final_pahse(t_int_list **list_a, t_options *option,
 		t_charlist *action);
 
-int		ft_get_best_path(int first, int last, int size_list,t_int_list *list);
 
-int		ft_get_nbr_deplassement(int first, int last, int size_list);
+int		ft_get_best_path(t_int_list *list);
+int		ft_get_best_to_move(t_int_list *list_src, t_int_list *list_dest);
+
+
+
+
+
+
 
 int		ft_get_nbr_move_to_push(t_int_list *list, intmax_t elem);
-
 int		ft_get_nbr_move_to_put(t_int_list *list, intmax_t elem);
-
 void	ft_clean_list_rra_ra(t_charlist **action);
 BOOL	ft_are_cancel_out_action(char *action_a, char *action_b);
-
 #endif

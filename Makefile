@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/05/31 20:23:22 by mbelalou         ###   ########.fr        #
+#    Updated: 2018/05/31 20:52:18 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,13 +47,14 @@ SRCS_PUSH_SWAP	= $(addprefix $(DIR_PUSH_SWAP)/, $(SRC_PUSH_SWAP))
 
 DIR_ACT_PUSH_SWAP	= src/action_push_swap/
 SRC_ACT_PUSH_SWAP	= ft_are_cancel_out_action.c ft_clean_list_rra_ra.c\
-					  ft_get_best_path.c ft_get_nbr_deplassement.c\
+					  ft_get_best_path.c \
 					  ft_get_nbr_move_to_push.c ft_get_nbr_move_to_put.c\
 					  ft_init_option.c ft_rotat_down_stack_a.c\
 					  ft_rotat_down_stack_b.c ft_rotat_up_stack_a.c\
 					  ft_rotat_up_stack_b.c ft_get_position_in_list.c\
 					  ft_push_first_to_list_a.c ft_push_first_to_list_b.c\
-					  ft_intervert_head_list_a.c ft_intervert_head_list_b.c
+					  ft_intervert_head_list_a.c ft_intervert_head_list_b.c\
+					  ft_get_best_to_move.c
 SRCS_ACT_PUSH_SWAP	= $(addprefix $(DIR_ACT_PUSH_SWAP)/, $(SRC_ACT_PUSH_SWAP))
 
 INC_DIR		= inc/
