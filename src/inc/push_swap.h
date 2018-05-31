@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 15:45:07 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/28 12:46:35 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/05/31 19:38:52 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ BOOL			ft_add_end_values_int_list(char *line, t_int_list **list_valeur,
 int				ft_extract_options(char *str, t_options *options);
 BOOL			ft_is_param_valid(char *param, t_options *option, int *index);
 BOOL			ft_is_valid_int_tab(char *param);
-
+void			ft_init_option(t_options *opt);
 /*																	*/
 void	ft_run_ckecker(t_int_list *list_a, t_options *option,
 		BOOL (*actions_tab[11])(), char *actions_name[22]);

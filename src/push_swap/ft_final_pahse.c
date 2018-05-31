@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_nbr_move_to_put.c                           :+:      :+:    :+:   */
+/*   ft_final_pahse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 12:07:19 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/31 20:17:42 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/05/31 20:20:33 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/05/31 20:21:10 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/action.h"
 
-int		ft_get_nbr_move_to_put(t_int_list *list, intmax_t elem)
+void	ft_final_pahse(t_int_list **list_a, t_options *option,
+		t_charlist *action)
 {
-	int	 nbr_move;
+	intmax_t index;
 
-	nbr_move = 0;
-	while (list)
-	{
-		if (list->data > elem)
-			return (nbr_move);
-		nbr_move++;
-		list = list->next;
-	}
-	return (nbr_move);
+	index = ft_get_index_min_int_list(*list_a);
+	if (index <= ft_size_intlist(*list_a) / 2)
+		ft_rotat_up_stack_a(list_a, index, &action);
+	else
+		ft_rotat_down_stack_a(list_a,
+				ft_size_intlist(*list_a) - index, &action);
 }

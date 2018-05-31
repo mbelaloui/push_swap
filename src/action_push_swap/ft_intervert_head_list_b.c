@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_nbr_move_to_put.c                           :+:      :+:    :+:   */
+/*   ft_intervert_head_list_b.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 12:07:19 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/31 20:17:42 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/05/31 20:08:24 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/05/31 20:08:39 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/action.h"
 
-int		ft_get_nbr_move_to_put(t_int_list *list, intmax_t elem)
+void	ft_intervert_head_list_b(t_int_list **list_b, t_charlist **action)
 {
-	int	 nbr_move;
-
-	nbr_move = 0;
-	while (list)
-	{
-		if (list->data > elem)
-			return (nbr_move);
-		nbr_move++;
-		list = list->next;
-	}
-	return (nbr_move);
+	ft_add_charlist("sb", action);
+	ft_intervert_head_int_list(list_b);
 }
