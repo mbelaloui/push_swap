@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 15:27:13 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/01 12:00:42 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:29:10 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_get_position_in_list(t_int_list *list, intmax_t elem)
 
 	if (!list)
 		return (0);
-
 	pt_b = list->next;
 	index = 1;
 	ft_max_int_list(list, &temp_min_max_list);

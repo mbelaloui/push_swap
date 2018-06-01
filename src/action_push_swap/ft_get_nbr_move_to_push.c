@@ -6,11 +6,11 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 12:05:25 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/31 20:16:21 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:24:35 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/action.h"
+#include "../inc/action.h"
 
 int		ft_get_nbr_move_to_push(t_int_list *list, intmax_t elem)
 {

@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 11:03:26 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/01 17:23:19 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:27:34 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 # include "./push_swap.h"
 
-void	ft_rotat_down_stack_a(t_int_list **list,int nbr_rotations,
+void	ft_rotat_down_stack_a(t_int_list **list, int nbr_rotations,
 		t_charlist **action);
 void	ft_rotat_up_stack_a(t_int_list **list, int nbr_rotations,
 		t_charlist **action);
 
-void	ft_rotat_down_stack_b(t_int_list **list,int nbr_rotations,
+void	ft_rotat_down_stack_b(t_int_list **list, int nbr_rotations,
 		t_charlist **action);
 void	ft_rotat_up_stack_b(t_int_list **list, int nbr_rotations,
 		t_charlist **action);
@@ -40,16 +40,8 @@ void	ft_second_pahse(t_int_list **list_a, t_int_list **list_b,
 				t_options *option, t_charlist *action);
 void	ft_final_pahse(t_int_list **list_a, t_options *option,
 		t_charlist *action);
-
-
 int		ft_get_best_path(t_int_list *list);
 int		ft_get_best_to_move(t_int_list *list_src, t_int_list *list_dest);
-
-
-
-
-
-
 
 int		ft_get_nbr_move_to_push(t_int_list *list, intmax_t elem);
 int		ft_get_nbr_move_to_put(t_int_list *list, intmax_t elem);

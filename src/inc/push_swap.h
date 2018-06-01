@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 15:45:07 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/01 17:23:41 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:27:07 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # define UP		1
 # define DW		2
 
-
 typedef struct	s_options
 {
 	int			opt :1;
@@ -45,8 +44,7 @@ typedef struct	s_options
 	int			pres;
 }				t_options;
 
-# include "action.h"
-/*					menu debug						 */
+#include "action.h"
 
 int				main_debug(void);
 int				main_debug_arg(t_int_list *list_a);
@@ -65,8 +63,6 @@ void			ft_shift_up_two_list(t_int_list **list_a, t_int_list **list_b);
 void			ft_swap_menu(t_int_list **list_a, t_int_list **list_b);
 void			ft_swap_two_list(t_int_list **list_a, t_int_list **list_b);
 
-/*						message programe						 */
-
 void			ft_end_msg_check(t_options *option, int index,
 		t_int_list *list_a, t_int_list *list_b);
 int				ft_invalide_parametre(t_options option);
@@ -79,8 +75,6 @@ void			ft_tell_ok(t_options *option);
 void			ft_tell_ko(t_options *option, t_int_list *list_a,
 		t_int_list *list_b);
 
-/*							parsing									*/
-
 BOOL			ft_add_end_values_int_list(char *line, t_int_list **list_valeur,
 		t_options *option);
 int				ft_extract_options(char *str, t_options *options);
@@ -88,7 +82,6 @@ BOOL			ft_is_param_valid(char *param, t_options *option, int *index);
 BOOL			ft_is_valid_int_tab(char *param);
 void			ft_init_option(t_options *opt);
 
-/*																	*/
 void	ft_run_ckecker(t_int_list *list_a, t_options *option,
 		BOOL (*actions_tab[11])(), char *actions_name[22]);
 
@@ -101,6 +94,4 @@ int		ft_get_id_action(char *actions_name[22], t_int_list *list_a,
 		t_int_list *list_b, t_options *option);
 void	ft_init_actions_name(char **actions_name);
 void	ft_test_mode(void);
-
-
 #endif

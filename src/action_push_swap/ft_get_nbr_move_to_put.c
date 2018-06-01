@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 12:07:19 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/31 20:17:42 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:24:59 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_get_nbr_move_to_put(t_int_list *list, intmax_t elem)
 {
-	int	 nbr_move;
+	int	nbr_move;
 
 	nbr_move = 0;
 	while (list)

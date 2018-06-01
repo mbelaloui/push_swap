@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 20:29:13 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/18 12:43:49 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:22:48 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 BOOL	ft_is_param_valid(char *param, t_options *options, int *index)
 {
-  	int index_after_options;
+	int index_after_options;
 
 	if ((index_after_options = ft_extract_options(param, options)) < 0)
 		return (F);

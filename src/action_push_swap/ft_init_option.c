@@ -6,11 +6,11 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 12:18:46 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/01 17:26:14 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:25:27 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 void	ft_init_option(t_options *opt)
 {
@@ -25,5 +25,4 @@ void	ft_init_option(t_options *opt)
 	opt->exist_double = 0;
 	opt->overflow = 0;
 	opt->pres = 0;
-
 }

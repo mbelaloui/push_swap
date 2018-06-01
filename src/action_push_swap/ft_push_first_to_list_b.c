@@ -6,13 +6,13 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 19:41:12 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/31 19:43:06 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:29:17 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/action.h"
+#include "../inc/action.h"
 
-void	ft_push_first_to_list_b(t_int_list **list_a, t_int_list **list_b, 
+void	ft_push_first_to_list_b(t_int_list **list_a, t_int_list **list_b,
 		t_charlist **action)
 {
 	ft_add_charlist("pa", action);
