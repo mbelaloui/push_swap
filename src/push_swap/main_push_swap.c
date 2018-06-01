@@ -6,11 +6,21 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/07 17:33:10 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/31 20:25:11 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:18:59 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+static	void	set_pres(t_options *option, t_int_list *list_a)
+{
+	if (ft_size_intlist(list_a) > 150)
+	{
+		option->pres = 10;
+	}
+	else
+		option->pres = 50;
+}
 
 void	run_sort(t_int_list *list_a, t_options *option)
 {
@@ -20,10 +30,14 @@ void	run_sort(t_int_list *list_a, t_options *option)
 
 	action = NULL;
 	list_b = NULL;
+	set_pres(option, list_a);
 	ft_first_phase(&list_a, &list_b, option, &action);
 	ft_second_pahse(&list_a, &list_b, option, action);
 	ft_final_pahse(&list_a, option, action);
 	ft_put_list_charlist(action);
+	ft_dell_list_charlist(&action);
+	ft_clear_intlist(&list_b);
+	ft_clear_intlist(&list_a);
 }
 
 BOOL	run(char *param, t_options *option)
@@ -32,17 +46,11 @@ BOOL	run(char *param, t_options *option)
 
 	list_a = NULL;
 	if (!ft_add_end_values_int_list(param, &list_a, option))
-	{
-		ft_clear_int_list(&list_a);
-		return (F);
-	}
+		return (ft_clear_intlist(&list_a) && F);
 	if (option->t)
 		main_debug_arg(list_a);
 	else
-	{
 		run_sort(list_a, option);
-		ft_clear_int_list(&list_a);
-	}
 	return (T);
 }
 

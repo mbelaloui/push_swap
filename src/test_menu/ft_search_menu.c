@@ -6,19 +6,11 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 15:42:40 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/23 14:31:43 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 16:58:48 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-/*
-**
-**recupere la valeur dans la une focntion pui l'envoyer a la fonction suivante
-**
-**	faire une fonction qui recupere la valeur et l'affiche
-**
-*/
 
 static void	search(t_int_list *list)
 {
@@ -36,13 +28,13 @@ static void	search(t_int_list *list)
 	ft_printf("\n\t - any other thing to come back to the main menu.");
 	ft_printf("\n\nyour choice > ");
 	get_next_line(0, &line);
-	if (!ft_strcmp(line, "max") && ft_max_int_list(list, &temp_i))
-		ft_printf("max = %ld", temp_i);
+	if (!ft_strcmp(line, "med") && (temp_d = ft_med_int_list(list, &temp_d)))
+		ft_printf("med = %ld", (intmax_t)temp_d);
 	else if (!ft_strcmp(line, "min") && ft_min_int_list(list, &temp_i))
 		ft_printf("min = %ld", temp_i);
-//	else if (!ft_strcmp(line, "med") && (temp_d = ft_med_int_list(list)))
-//		ft_printf("med = %ld", (intmax_t)temp_d);
-	else if (!ft_strcmp(line, "avg") && ft_avg_int_list(list, &temp_d))
+	else if (!ft_strcmp(line, "max") && ft_max_int_list(list, &temp_i))
+		ft_printf("max = %ld", temp_i);
+	else if (!ft_strcmp(line, "avg") && ft_avg_intlist(list, &temp_d))
 		ft_printf("avg = %ld", (intmax_t)temp_d);
 	ft_strdel(&line);
 	get_next_line(0, &line);
@@ -52,7 +44,7 @@ static void	search(t_int_list *list)
 void		ft_search_menu(t_int_list **list_a, t_int_list **list_b)
 {
 	char *line;
-	
+
 	ft_print_head(*list_a, *list_b);
 	ft_printf("\n\t - choose <A/a> to add items to list A.");
 	ft_printf("\n\t - choose <B/b> to add items to list B.");

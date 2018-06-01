@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 18:52:37 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/17 12:58:16 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 13:30:57 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ajouterdebut(t_int_list **list)
 		ft_printf("please enter a number > ");
 		get_next_line(0, &line);
 		if (ft_is_valid_int_tab(line))
-			ft_add_bgn_int_list(ft_atointmax(line), list);
+			ft_add_bgn_intlist(ft_atointmax(line), list);
 		else
 			break ;
 		ft_strdel(&line);
@@ -50,7 +50,7 @@ static void	ajouterfin(t_int_list **list)
 		ft_printf("please enter a number > ");
 		get_next_line(0, &line);
 		if (ft_is_valid_int_tab(line))
-			ft_add_end_int_list(ft_atointmax(line), list);
+			ft_add_end_intlist(ft_atointmax(line), list);
 		else
 			break ;
 		ft_strdel(&line);

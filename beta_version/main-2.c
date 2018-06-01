@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 16:58:46 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/28 15:40:23 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 15:26:38 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,29 @@
 int			main(void)
 {
 	intmax_t tab[] = {90,50,9,8,7,6,5,4,3,2,1,900,0,-1,-2,-3,-4,-5,-6,800,-7,-8};
-/*	t_int_list *list;
+	t_int_list *list;
 
+	t_int_list *listb;
+
+	listb = NULL;
+
+	list = ft_tab_to_int_list(tab, sizeof(tab));
+	
+	ft_put_tow_piles(list, listb);
+	ft_shift_top_int_list(&list);
+	ft_put_tow_piles(list, listb);
+
+	ft_push_first_to_list(&list, &listb);
+	ft_put_tow_piles(list, listb);
+
+
+
+	
+	ft_clear_intlist(&list);
+	ft_clear_intlist(&listb);
+
+
+	/*
 	ft_put_intmax_tab(tab, sizeof(tab));
 
 	list = NULL;
@@ -65,7 +86,7 @@ int			main(void)
 
 	ft_clear_int_list(&list);
 */
-	t_charlist *head;
+/*	t_charlist *head;
 	ft_put_charlist(head);
 	ft_put_list_charlist(head);
 	head = ft_new_charlist("action 1");
@@ -84,7 +105,7 @@ int			main(void)
 	ft_dell_list_charlist(&head);
 
 	ft_printf("is empty %d", ft_isempty_charlist(head));
-
+*/
 	/*	
 		ft_put_intmax_tab(tab, sizeof(tab));
 		ft_bubble_sort_tab(tab, sizeof (tab));

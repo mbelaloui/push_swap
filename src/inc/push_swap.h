@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 15:45:07 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/31 19:38:52 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 17:23:41 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct	s_options
 	int			t : 1;
 	int			exist_double : 1;
 	int			overflow : 1;
-
+	int			pres;
 }				t_options;
 
 # include "action.h"
@@ -87,6 +87,7 @@ int				ft_extract_options(char *str, t_options *options);
 BOOL			ft_is_param_valid(char *param, t_options *option, int *index);
 BOOL			ft_is_valid_int_tab(char *param);
 void			ft_init_option(t_options *opt);
+
 /*																	*/
 void	ft_run_ckecker(t_int_list *list_a, t_options *option,
 		BOOL (*actions_tab[11])(), char *actions_name[22]);
@@ -100,5 +101,6 @@ int		ft_get_id_action(char *actions_name[22], t_int_list *list_a,
 		t_int_list *list_b, t_options *option);
 void	ft_init_actions_name(char **actions_name);
 void	ft_test_mode(void);
+
 
 #endif

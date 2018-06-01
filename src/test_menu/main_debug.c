@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 16:19:27 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/19 19:49:08 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 13:21:22 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int		main_debug_arg(t_int_list *la)
 		ft_clear_scr();
 	}
 	ft_clear_scr();
-	ft_clear_int_list(&list_a);
-	ft_clear_int_list(&list_b);
+	ft_clear_intlist(&list_a);
+	ft_clear_intlist(&list_b);
 	ft_printf("ciao...");
 	return (0);
 }
@@ -87,8 +87,8 @@ int		main_debug(void)
 		ft_clear_scr();
 	}
 	ft_clear_scr();
-	ft_clear_int_list(&list_a);
-	ft_clear_int_list(&list_b);
+	ft_clear_intlist(&list_a);
+	ft_clear_intlist(&list_b);
 	ft_printf("ciao...");
 	return (0);
 }

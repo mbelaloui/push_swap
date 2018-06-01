@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 20:18:22 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/31 20:26:02 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 18:16:25 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	ft_second_pahse(t_int_list **list_a, t_int_list **list_b,
 
 	while (*list_b)
 	{
-		val = (*list_b)->data;
 		index = ft_get_index_max_int_list(*list_b);
 		if (index <= ft_size_intlist(*list_b) / 2)
 			ft_rotat_up_stack_b(list_b, index, &action);
 		else
 			ft_rotat_down_stack_b(list_b, ft_size_intlist(*list_b) - index,
 					&action);
+		val = (*list_b)->data;
 		index = ft_get_position_in_list(*list_a, val);
 		if (index <= ft_size_intlist(*list_a) / 2)
 			ft_rotat_up_stack_a(list_a, index, &action);

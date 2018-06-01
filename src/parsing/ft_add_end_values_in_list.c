@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/07 16:51:41 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/19 18:41:18 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/01 17:01:22 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ BOOL		ft_add_end_values_int_list(char *line, t_int_list **list_valeur,
 			pt++;
 		if (ft_is_in_int_list(val, *list_valeur))
 			return ((option->exist_double = 1) && F);
-		else
-			if(!ft_add_end_int_list(val, list_valeur))
-				return (F);
+		else if (!ft_add_end_intlist(val, list_valeur))
+			return (F);
 		size_nbr = 0;
 		while (line[pt] && ft_isdigit(line[pt++]))
 			size_nbr++;
