@@ -6,34 +6,22 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/07 17:33:10 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/01 18:18:59 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/02 19:58:08 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static	void	set_pres(t_options *option, t_int_list *list_a)
-{
-	if (ft_size_intlist(list_a) > 150)
-	{
-		option->pres = 10;
-	}
-	else
-		option->pres = 50;
-}
-
 void	run_sort(t_int_list *list_a, t_options *option)
 {
 	t_int_list	*list_b;
 	t_charlist	*action;
-	t_charlist	*head_action;
 
 	action = NULL;
 	list_b = NULL;
-	set_pres(option, list_a);
 	ft_first_phase(&list_a, &list_b, option, &action);
 	ft_second_pahse(&list_a, &list_b, option, action);
-	ft_final_pahse(&list_a, option, action);
+//	ft_final_pahse(&list_a, option, action);
 	ft_put_list_charlist(action);
 	ft_dell_list_charlist(&action);
 	ft_clear_intlist(&list_b);
