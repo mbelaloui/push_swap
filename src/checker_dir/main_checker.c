@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 16:25:18 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/04 20:03:23 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/04 20:50:45 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ void	ft_init_option(t_options *opt)
 BOOL	run(char *param, t_options *option)
 {
 	t_int_list	*list_a;
-	BOOL		(*actions_tab[11])(t_int_list **list_a, t_int_list **list_b);
 	char		*actions_name[22];
 
-	ft_init_actions_tab(actions_tab);
 	ft_init_actions_name(actions_name);
 	list_a = NULL;
 	if (!ft_add_end_values_int_list(param, &list_a, option))
@@ -37,7 +35,7 @@ BOOL	run(char *param, t_options *option)
 		main_debug_arg(list_a);
 	else
 	{
-		ft_run_ckecker(list_a, option, actions_tab, actions_name);
+		ft_run_ckecker(list_a, option, actions_name);
 		ft_clear_intlist(&list_a);
 	}
 	return (T);

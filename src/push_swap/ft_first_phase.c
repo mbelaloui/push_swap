@@ -6,60 +6,13 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 20:22:04 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/04 19:52:57 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/04 20:55:52 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	atomique_sort_phas_one(t_int_list **list_a, t_charlist **action,
-		t_int_list **pt_2, t_int_list **pt_3)
-{
-	t_int_list *pt_1;
-
-	pt_1 = *list_a;
-	if (pt_1->data > (*pt_3)->data)
-	{
-		if ((*pt_2)->data > (*pt_3)->data)
-		{
-			ft_intervert_head_list_a(list_a, action);
-			ft_rotat_down_stack_a(list_a, 1, action);
-		}
-		else
-			ft_rotat_up_stack_a(list_a, 1, action);
-	}
-	else
-		ft_intervert_head_list_a(list_a, action);
-}
-
-void	atomique_sort_phas_tow(t_int_list **list_a, t_charlist **action,
-		t_int_list **pt_1, t_int_list **pt_3)
-{
-	if ((*pt_1)->data < (*pt_3)->data)
-	{
-		ft_rotat_down_stack_a(list_a, 1, action);
-		ft_intervert_head_list_a(list_a, action);
-	}
-	else
-		ft_rotat_down_stack_a(list_a, 1, action);
-}
-
-void	atomique_sort(t_int_list **list_a, t_charlist **action)
-{
-	t_int_list *pt_1;
-	t_int_list *pt_2;
-	t_int_list *pt_3;
-
-	pt_1 = *list_a;
-	pt_2 = pt_1->next;
-	pt_3 = pt_2->next;
-	if (pt_1->data > pt_2->data)
-		atomique_sort_phas_one(list_a, action, &pt_2, &pt_3);
-	else
-		atomique_sort_phas_tow(list_a, action, &pt_1, &pt_3);
-}
-
-void	smal_list(t_int_list **list_a, t_int_list **list_b,
+static void	smal_list(t_int_list **list_a, t_int_list **list_b,
 		t_charlist **action, t_options *option)
 {
 	intmax_t	min;
@@ -83,11 +36,11 @@ void	smal_list(t_int_list **list_a, t_int_list **list_b,
 		sizelist = ft_size_intlist(*list_a);
 	}
 	if (!ft_is_sorted_asc_int_list(*list_a))
-		atomique_sort(list_a, action);
+		ft_atomique_sort(list_a, action);
 }
 
-void	big_list(t_int_list **list_a, t_int_list **list_b, t_charlist **action,
-		t_options *option)
+static void	big_list(t_int_list **list_a, t_int_list **list_b,
+		t_charlist **action, t_options *option)
 {
 	intmax_t	min;
 	intmax_t	pivot;
@@ -107,10 +60,9 @@ void	big_list(t_int_list **list_a, t_int_list **list_b, t_charlist **action,
 		ft_rotat_up_stack_a(list_a, 1, action);
 }
 
-void	ft_first_phase(t_int_list **list_a, t_int_list **list_b,
+void		ft_first_phase(t_int_list **list_a, t_int_list **list_b,
 		t_options *option, t_charlist **action)
 {
-
 	int			sizelist;
 
 	option->pres = 10;

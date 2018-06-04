@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/06/04 18:58:51 by mbelalou         ###   ########.fr        #
+#    Updated: 2018/06/04 20:53:49 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,12 @@ SRCS_MAESSAGE		= $(addprefix $(DIR_MESSAGE)/, $(SRC_MESSAGE))
 
 DIR_CHECKER			= checker_dir
 SRC_CHECKER			= ft_run_ckecker.c main_checker.c ft_get_id_action.c\
-					  ft_init_action_name.c ft_get_index_action.c\
-					  ft_init_action_tab.c
+					  ft_init_action_name.c ft_get_index_action.c
 SRCS_CHECKER		= $(addprefix $(DIR_CHECKER)/, $(SRC_CHECKER))
 
 DIR_PUSH_SWAP		= push_swap
 SRC_PUSH_SWAP		= main_push_swap.c ft_first_phase.c ft_second_phase.c\
-					  ft_final_pahse.c
+					  ft_final_pahse.c ft_atomique_sort.c
 SRCS_PUSH_SWAP		= $(addprefix $(DIR_PUSH_SWAP)/, $(SRC_PUSH_SWAP))
 
 DIR_ACT_PUSH_SWAP	= action_push_swap

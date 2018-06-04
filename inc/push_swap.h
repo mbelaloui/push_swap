@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 15:45:07 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/04 19:55:28 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/04 20:56:01 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,11 @@ BOOL			ft_is_param_valid(char *param, t_options *option, int *index);
 BOOL			ft_is_valid_int_tab(char *param);
 void			ft_init_option(t_options *opt);
 
-void			ft_run_ckecker(t_int_list *list_a, t_options *option,
-		BOOL (*actions_tab[11])(), char *actions_name[22]);
 void			ft_init_actions_tab(BOOL (*actions_tab[11])(t_int_list **list_a,
 		t_int_list **list_b));
 int				ft_get_index_action(char *str, char *actions_name[11]);
 void			ft_run_ckecker(t_int_list *list_a, t_options *option,
-		BOOL (*actions_tab[11])(), char *actions_name[22]);
+		char *actions_name[22]);
 int				ft_get_id_action(char *actions_name[22], t_int_list *list_a,
 		t_int_list *list_b, t_options *option);
 void			ft_init_actions_name(char **actions_name);
@@ -112,6 +110,7 @@ void			ft_intervert_head_list_b(t_int_list **list_b,
 
 void			ft_first_phase(t_int_list **list_a, t_int_list **list_b,
 		t_options *option, t_charlist **action);
+void			ft_atomique_sort(t_int_list **list_a, t_charlist **action);
 void			ft_second_pahse(t_int_list **list_a, t_int_list **list_b,
 		t_charlist *action);
 void			ft_final_pahse(t_int_list **list_a, t_charlist *action);
