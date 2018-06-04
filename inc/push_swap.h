@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 15:45:07 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/03 19:26:59 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/04 19:55:28 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void			ft_init_option(t_options *opt);
 
 void			ft_run_ckecker(t_int_list *list_a, t_options *option,
 		BOOL (*actions_tab[11])(), char *actions_name[22]);
-
 void			ft_init_actions_tab(BOOL (*actions_tab[11])(t_int_list **list_a,
 		t_int_list **list_b));
 int				ft_get_index_action(char *str, char *actions_name[11]);
@@ -97,30 +96,24 @@ void			ft_rotat_down_stack_a(t_int_list **list, int nbr_rotations,
 		t_charlist **action);
 void			ft_rotat_up_stack_a(t_int_list**list, int nbr_rotations,
 		t_charlist **action);
-
 void			ft_rotat_down_stack_b(t_int_list **list, int nbr_rotations,
 		t_charlist **action);
 void			ft_rotat_up_stack_b(t_int_list **list, int nbr_rotations,
 		t_charlist **action);
 int				ft_get_position_in_list(t_int_list *list, intmax_t elem);
-
 void			ft_push_first_to_list_a(t_int_list **list_a,
 		t_int_list **list_b, t_charlist **action);
 void			ft_push_first_to_list_b(t_int_list **list_a,
 		t_int_list **list_b, t_charlist **action);
-
 void			ft_intervert_head_list_a(t_int_list **list_a,
 		t_charlist **action);
-
 void			ft_intervert_head_list_b(t_int_list **list_b,
 		t_charlist **action);
 
 void			ft_first_phase(t_int_list **list_a, t_int_list **list_b,
 		t_options *option, t_charlist **action);
-
 void			ft_second_pahse(t_int_list **list_a, t_int_list **list_b,
 		t_charlist *action);
-
 void			ft_final_pahse(t_int_list **list_a, t_charlist *action);
 
 int				ft_get_best_path(t_int_list *list);

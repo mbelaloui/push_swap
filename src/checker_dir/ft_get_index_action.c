@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/14 18:49:05 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/19 18:43:51 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/04 20:06:02 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 **		ft_printf("lecture de >%s< comparaison avec >%s<"
 **				"index %d\n", str, actions_name[index], index);
-**			ft_printf("{yellow}KO essaye avec l'index %d{eoc}\n", index);
+**		ft_printf("{yellow}KO essaye avec l'index %d{eoc}\n", index);
 */
 
 int		ft_get_index_action(char *str, char *actions_name[11])
