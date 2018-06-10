@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/07 17:33:10 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/06 08:35:00 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/10 20:17:29 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static BOOL	run(char *param, t_options *option)
 		main_debug_arg(list_a);
 	else
 		run_sort(list_a, option);
-	ft_clear_intlist(&list_a);
 	return (T);
 }
 
