@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2019/03/02 14:37:46 by mbelalou         ###   ########.fr        #
+#    Updated: 2019/03/02 14:41:07 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ all					: $(NAME_C) $(NAME_P)
 $(NAME_C)			: $(LIBFT) $(OBJS_DIR) $(OBJ_C)
 			@gcc $(OBJ_C) -L $(LIBFT_DIR) -lft -o $(NAME_C)
 			@echo "$(GREEN)$(NAME_C) has been successfully created !$(WHITE)."
-			@say "$(NAME_C) has been successfully created !"
+			@#say "$(NAME_C) has been successfully created !"
 
 $(NAME_P)			: $(LIBFT) $(OBJS_DIR) $(OBJ_P)
 			@gcc $(OBJ_P) -L $(LIBFT_DIR) -lft -o $(NAME_P)
