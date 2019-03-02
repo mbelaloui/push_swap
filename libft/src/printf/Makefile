@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/06/05 12:45:31 by mbelalou         ###   ########.fr        #
+#    Updated: 2019/03/02 14:50:35 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ all				: $(NAME)
 $(NAME)			: $(SRC) $(OBJS_DIR) $(OBJ)
 		@ar rc $(NAME) $(OBJ)
 		@ranlib $(NAME)
-		@echo "$(YELLO)$(NAME) has been successfully created !$(BIP)$(WHITE)."
+		@#echo "$(YELLO)$(NAME) has been successfully created !$(BIP)$(WHITE)."
 
 $(OBJS_DIR)%.o	: %.c $(INC_DIR)
 		@echo "$< ... $(GREEN) compiled $(WHITE)"
