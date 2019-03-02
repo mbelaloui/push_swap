@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/06/05 12:45:00 by mbelalou         ###   ########.fr        #
+#    Updated: 2019/03/02 14:38:59 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,7 +130,7 @@ $(NAME)			: $(PRINTF) $(OBJS_DIR) $(OBJ)
 		@ar rc $(NAME) $(OBJ)
 		@ranlib $(NAME)
 		@echo "$(GREEN)$(NAME) has been successfully created !$(WHITE)."
-		@say "librery has been successfully created !"
+		@#say "librery has been successfully created !"
 
 $(PRINTF)		:
 		@make -C $(PRINTF_DIR)
@@ -160,7 +160,7 @@ clean			:
 		@make -C $(PRINTF_DIR) clean
 		@rm -fr $(OBJS_DIR)
 		@echo "$(RED)cleaned the libft binary file$(WHITE)."
-		@say "cleaned the librery binary files."
+		@#say "cleaned the librery binary files."
 
 fclean			:
 		@make -C $(PRINTF_DIR) fclean
@@ -168,7 +168,7 @@ fclean			:
 		@rm -f $(NAME)
 		@echo "$(RED)cleaned the $(NAME) file$(WHITE)."
 		@echo "$(GREEN)the $(NAME) directory is totaly cleaned !!$(WHITE)."
-		@say "the librery directory is totaly cleaned !"
+		@#say "the librery directory is totaly cleaned !"
 
 re				: fclean all
 
