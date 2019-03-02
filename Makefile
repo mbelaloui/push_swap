@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/06/05 12:43:44 by mbelalou         ###   ########.fr        #
+#    Updated: 2019/03/02 14:37:46 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ $(NAME_C)			: $(LIBFT) $(OBJS_DIR) $(OBJ_C)
 $(NAME_P)			: $(LIBFT) $(OBJS_DIR) $(OBJ_P)
 			@gcc $(OBJ_P) -L $(LIBFT_DIR) -lft -o $(NAME_P)
 			@echo "$(GREEN)$(NAME_P) has been successfully created !$(WHITE)."
-			@say "$(NAME_P) has been successfully created !"
+			@#say "$(NAME_P) has been successfully created !"
 
 $(OBJS_DIR)%.o		: ./src/%.c
 			@echo "$< ... $(GREEN) compiled $(WHITE)"
@@ -112,7 +112,7 @@ clean				:
 			@make -C $(LIBFT_DIR) clean
 			@rm -fr $(OBJS_DIR)
 			@echo "$(RED)cleaned the checker binary files$(WHITE)."
-			@say "cleaned the checker binary files."
+			@#say "cleaned the checker binary files."
 
 fclean			:
 			@make -C $(LIBFT_DIR) fclean
@@ -122,7 +122,7 @@ fclean			:
 			@echo "$(RED)cleaned the $(NAME) file$(WHITE)."
 			@echo "$(GREEN)the $(NAME_C) directory is totaly cleaned !!$(WHITE)."
 			@echo "$(GREEN)the $(NAME_P) directory is totaly cleaned !!$(WHITE)."
-			@say "the $(NAME_P) and $(NAME_C) directory are totaly cleaned !"
+			@#say "the $(NAME_P) and $(NAME_C) directory are totaly cleaned !"
 
 re				: fclean all
 
